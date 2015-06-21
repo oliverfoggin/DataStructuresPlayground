@@ -24,6 +24,7 @@ extension MutableCollectionType where Index == Int, Generator.Element : Comparab
     }
 }
 
+
 var array = randomArray(2, maxNumber: 100)
 
 array.bubbleSort()
