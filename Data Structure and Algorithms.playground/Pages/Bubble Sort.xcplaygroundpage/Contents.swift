@@ -22,4 +22,5 @@ for _ in array.indices {
     }
     arrayView.values = array
     arrayView.captureView("View")
-}//: [Next](@next)
+}
+//: [Next](@next)
