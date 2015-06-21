@@ -9,23 +9,18 @@ public class ArrayStackView: UIView {
         }
     }
     
-    let stackView: UIStackView = {
-        let s = UIStackView(frame: CGRectZero)
-        s.translatesAutoresizingMaskIntoConstraints = false
-        s.axis = UILayoutConstraintAxis.Horizontal
-        s.distribution = UIStackViewDistribution.FillEqually
-        s.alignment = UIStackViewAlignment.Center
-        s.layoutMarginsRelativeArrangement = true
-        return s
-    }()
+    let stackView: UIStackView
     
     override public init(frame: CGRect) {
+        stackView = UIStackView(frame: frame)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = UILayoutConstraintAxis.Horizontal
+        stackView.distribution = UIStackViewDistribution.FillEqually
+        stackView.alignment = UIStackViewAlignment.Center
+        
         super.init(frame: frame)
         backgroundColor = .grayColor()
         addSubview(stackView)
-        
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|[stackView]|", options: NSLayoutFormatOptions.AlignAllBottom, metrics: nil, views: ["stackView": stackView]))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[stackView]|", options: NSLayoutFormatOptions.AlignAllBottom, metrics: nil, views: ["stackView": stackView]))
     }
 
     required public init(coder aDecoder: NSCoder) {
@@ -46,7 +41,7 @@ public class ArrayStackView: UIView {
         }
         
         for value in values {
-            addViewWithHeight(value, maxHeight: maxValue)
+            addViewWithHeight(value, width: frame.width / CGFloat(values.count), maxHeight: maxValue)
         }
         
         print(stackView)
@@ -60,21 +55,21 @@ public class ArrayStackView: UIView {
         XCPShowView(identifier, view: self)
     }
     
-    func addViewWithHeight(height: Int, maxHeight: Int) -> UIView {
+    func addViewWithHeight(height: Int, width: CGFloat, maxHeight: Int) -> UIView {
         let percentage = CGFloat(height) / CGFloat(maxHeight)
-        let view = UIView(frame: CGRectZero)
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: self.frame.height * percentage))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = colorForPercentage(percentage)
         view.layer.borderColor = UIColor.blackColor().CGColor
         view.layer.borderWidth = 1.0
         stackView.addArrangedSubview(view)
-        view.addConstraint(NSLayoutConstraint(item: view,
-            attribute: NSLayoutAttribute.Height,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: self,
-            attribute: NSLayoutAttribute.Height,
-            multiplier: percentage,
-            constant: 0.0))
+//        view.addConstraint(NSLayoutConstraint(item: view,
+//            attribute: NSLayoutAttribute.Height,
+//            relatedBy: NSLayoutRelation.Equal,
+//            toItem: self,
+//            attribute: NSLayoutAttribute.Height,
+//            multiplier: percentage,
+//            constant: 0.0))
         return view
     }
     
