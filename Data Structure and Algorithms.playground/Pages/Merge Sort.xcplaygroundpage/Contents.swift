@@ -5,20 +5,11 @@
 */
 import UIKit
 
-let array = randomArray(10, maxNumber: 100)
+let array = randomArray(200, maxNumber: 1000)
 
-var iteration = 0
-var visualisation = 0
-
-func elementsInRange(a: [Int], start: Int, end: Int) -> [Int] {
-    var result = [Int]()
-    
-    for x in start..<end {
-        result.append(a[x])
-    }
-    
-    return result
-}
+var arrayView = ArrayStackView(frame: CGRect(x: 0, y: 0, width: 500, height: 300))
+arrayView.values = array
+arrayView.captureView("View")
 
 func merge(a: [Int], b: [Int], mergeInto acc: [Int]) -> [Int] {
     if a == [] {
@@ -28,23 +19,25 @@ func merge(a: [Int], b: [Int], mergeInto acc: [Int]) -> [Int] {
     }
     
     if a[0] < b[0] {
-        return merge(elementsInRange(a, start: 1, end: a.count), b: b, mergeInto: acc + [a[0]])
+        return merge(Array(a[1..<a.count]), b: b, mergeInto: acc + [a[0]])
     } else {
-        return merge(a, b: elementsInRange(b, start: 1, end: b.count), mergeInto: acc + [b[0]])
+        return merge(a, b: Array(b[1..<b.count]), mergeInto: acc + [b[0]])
     }
 }
 
 func mergeSort(a: [Int]) -> [Int] {
-    visualize("Iteration\(visualisation++)", array: a)
+    arrayView.values = a
+    arrayView.captureView("View")
     if a.count <= 1 {
         return a
     } else {
-        let firstHalf = elementsInRange(a, start: 0, end: a.count/2)
-        let secondHalf = elementsInRange(a, start: a.count/2, end: a.count)
+        let firstHalf = Array(a[0..<a.count/2])
+        let secondHalf = Array(a[a.count/2..<a.count])
         
         let array = merge(mergeSort(firstHalf), b: mergeSort(secondHalf), mergeInto: [])
         
-        visualize("Merge\(visualisation++)", array: array)
+        arrayView.values = array
+        arrayView.captureView("View")
         
         return array
     }
