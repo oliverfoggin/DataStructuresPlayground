@@ -5,7 +5,7 @@
 */
 import UIKit
 
-var array = randomArray(100, maxNumber: 100)
+var array = randomArray(200, maxNumber: 1000)
 
 var arrayView = ArrayStackView(frame: CGRect(x: 0, y: 0, width: 500, height: 300))
 arrayView.values = array
