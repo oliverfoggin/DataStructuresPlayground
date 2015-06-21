@@ -4,12 +4,14 @@
 # Merge Sort
 */
 import UIKit
-import XCPlayground
+
+let array = randomArray(10, maxNumber: 100)
 
 var iteration = 0
+var visualisation = 0
 
-func elementsInRange<T>(a: [T], start: Int, end: Int) -> [T] {
-    var result = [T]()
+func elementsInRange(a: [Int], start: Int, end: Int) -> [Int] {
+    var result = [Int]()
     
     for x in start..<end {
         result.append(a[x])
@@ -18,7 +20,7 @@ func elementsInRange<T>(a: [T], start: Int, end: Int) -> [T] {
     return result
 }
 
-func merge<T: Comparable>(a: [T], b: [T], mergeInto acc: [T]) -> [T] {
+func merge(a: [Int], b: [Int], mergeInto acc: [Int]) -> [Int] {
     if a == [] {
         return acc + b
     } else if b == [] {
@@ -32,23 +34,21 @@ func merge<T: Comparable>(a: [T], b: [T], mergeInto acc: [T]) -> [T] {
     }
 }
 
-func mergeSort<T: Comparable>(a: [T]) -> [T] {
+func mergeSort(a: [Int]) -> [Int] {
+    visualize("Iteration\(visualisation++)", array: a)
     if a.count <= 1 {
         return a
     } else {
         let firstHalf = elementsInRange(a, start: 0, end: a.count/2)
         let secondHalf = elementsInRange(a, start: a.count/2, end: a.count)
         
-        return merge(mergeSort(firstHalf), b: mergeSort(secondHalf), mergeInto: [])
+        let array = merge(mergeSort(firstHalf), b: mergeSort(secondHalf), mergeInto: [])
+        
+        visualize("Merge\(visualisation++)", array: array)
+        
+        return array
     }
 }
 
-let array = randomArray(10, maxNumber: 100)
-
 let sortedArray = mergeSort(array)
-
-//let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-//view.backgroundColor = .yellowColor()
-//XCPShowView("", view: view)
-
 //: [Next](@next)

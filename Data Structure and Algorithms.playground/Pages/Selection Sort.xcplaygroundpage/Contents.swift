@@ -24,6 +24,4 @@ for index in array.indices {
     swap(&array[index], &array[lowestIndex])
     visualize("Iteration\(visualisation++)", array: array)
 }
-
-array
 //: [Next](@next)
