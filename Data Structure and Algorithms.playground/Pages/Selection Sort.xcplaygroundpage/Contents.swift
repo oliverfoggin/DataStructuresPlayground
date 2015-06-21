@@ -5,8 +5,6 @@
 */
 import Foundation
 
-var iterations = 0
-
 extension MutableCollectionType where Self: RangeReplaceableCollectionType, Index == Int, Generator.Element == Int {
     mutating func selectionSort() {
         var viewIteration = 0

@@ -4,8 +4,6 @@
 */
 import Foundation
 
-var iterations = 0
-
 extension MutableCollectionType where Index == Int, Generator.Element : Comparable {
     
     mutating func bubbleSort() {
@@ -16,7 +14,6 @@ extension MutableCollectionType where Index == Int, Generator.Element : Comparab
             visualize("iteration\(viewIteration++)")
             sorted = true
             for i in 0..<count - 1 {
-                ++iterations
                 if self[i] > self[i+1] {
                     swap(&self[i], &self[i+1])
                     sorted = false
@@ -29,6 +26,4 @@ extension MutableCollectionType where Index == Int, Generator.Element : Comparab
 var array = randomArray(20, maxNumber: 100)
 
 array.bubbleSort()
-
-iterations
 //: [Next](@next)
