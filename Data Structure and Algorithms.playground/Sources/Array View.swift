@@ -1,7 +1,6 @@
 import UIKit
 import XCPlayground
 
-@available(iOS 9.0, *)
 public class ArrayStackView: UIView {
     public var values: [Int] = [] {
         didSet {
