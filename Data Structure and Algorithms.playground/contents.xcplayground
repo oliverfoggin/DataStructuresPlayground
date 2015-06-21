@@ -3,5 +3,6 @@
     <pages>
         <page name='Bubble Sort'/>
         <page name='Insertion Sort'/>
+        <page name='Selection Sort'/>
     </pages>
 </playground>

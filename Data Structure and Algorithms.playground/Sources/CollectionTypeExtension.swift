@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import XCPlayground
 
 public extension MutableCollectionType where Index == Int, Generator.Element : Equatable {
     func myIndexOf(element: Generator.Element) -> Index? {
@@ -9,6 +10,15 @@ public extension MutableCollectionType where Index == Int, Generator.Element : E
             }
         }
         return nil
+    }
+}
+
+public extension MutableCollectionType {
+    func visualize(identifier: String)
+    {
+        for x in self {
+            XCPCaptureValue(identifier, value: x)
+        }
     }
 }
 

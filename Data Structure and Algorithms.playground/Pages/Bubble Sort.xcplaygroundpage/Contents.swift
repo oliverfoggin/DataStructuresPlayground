@@ -7,10 +7,13 @@ import Foundation
 var iterations = 0
 
 extension MutableCollectionType where Index == Int, Generator.Element : Comparable {
+    
     mutating func bubbleSort() {
         if self.count == 0 {return }
         var sorted = false
+        var viewIteration = 0
         while sorted == false {
+            visualize("iteration\(viewIteration++)")
             sorted = true
             for i in 0..<count - 1 {
                 ++iterations
@@ -19,13 +22,11 @@ extension MutableCollectionType where Index == Int, Generator.Element : Comparab
                     sorted = false
                 }
             }
-            print(self)
         }
     }
 }
 
-
-var array = randomArray(2, maxNumber: 100)
+var array = randomArray(20, maxNumber: 100)
 
 array.bubbleSort()
 
