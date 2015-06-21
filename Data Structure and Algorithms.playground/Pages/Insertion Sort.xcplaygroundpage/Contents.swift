@@ -5,27 +5,21 @@
 */
 import Foundation
 
-extension MutableCollectionType where Self: RangeReplaceableCollectionType, Index == Int, Generator.Element: Comparable {
-    mutating func insertionSort() {
-        var viewIteration = 0
-        for (index, number) in enumerate() {
-            for i in 0...index {
-                ++iterations
-                if self[i] > number {
-                    removeAtIndex(index)
-                    insert(number, atIndex: i)
-                    break
-                }
-            }
-            visualize("iteration\(viewIteration++)")
+var array = randomArray(40, maxNumber: 100)
+
+var iterations = 0
+var visualisation = 0
+
+for (index, number) in array.enumerate() {
+    for i in 0...index {
+        if array[i] > array[index] {
+            let removedValue = array[index]
+            array.removeAtIndex(index)
+            array.insert(removedValue, atIndex: i)
+            break
         }
+        ++iterations
     }
+    visualize("Iteration\(visualisation++)", array: array)
 }
-
-var array = randomArray(20, maxNumber: 100)
-
-array.insertionSort()
-
-iterations
-
 //: [Next](@next)
