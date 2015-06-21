@@ -12,13 +12,13 @@ var visualisation = 0
 
 for (index, number) in array.enumerate() {
     for i in 0...index {
+        ++iterations
         if array[i] > array[index] {
             let removedValue = array[index]
             array.removeAtIndex(index)
             array.insert(removedValue, atIndex: i)
             break
         }
-        ++iterations
     }
     visualize("Iteration\(visualisation++)", array: array)
 }

@@ -12,10 +12,10 @@ var visualisation = 0
 
 for _ in array.indices {
     for i in 0..<array.count - 1 {
+        iterations++
         if array[i] > array[i+1] {
             swap(&array[i], &array[i+1])
         }
-        iterations++
     }
     visualize("Iteration\(visualisation++)", array: array)
 }
