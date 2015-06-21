@@ -13,12 +13,10 @@ public extension MutableCollectionType where Index == Int, Generator.Element : E
     }
 }
 
-public extension MutableCollectionType {
-    func visualize(identifier: String)
-    {
-        for x in self {
-            XCPCaptureValue(identifier, value: x)
-        }
+public func visualize(identifier: String, array: [Int])
+{
+    for x in array {
+        XCPCaptureValue(identifier, value: x)
     }
 }
 

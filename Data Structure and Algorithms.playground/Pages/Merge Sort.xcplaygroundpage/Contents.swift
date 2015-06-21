@@ -8,7 +8,7 @@ import XCPlayground
 
 var iteration = 0
 
-func elementsInRange<T>(a: [T], start: Int, end: Int) -> ([T]) {
+func elementsInRange<T>(a: [T], start: Int, end: Int) -> [T] {
     var result = [T]()
     
     for x in start..<end {
@@ -19,9 +19,6 @@ func elementsInRange<T>(a: [T], start: Int, end: Int) -> ([T]) {
 }
 
 func merge<T: Comparable>(a: [T], b: [T], mergeInto acc: [T]) -> [T] {
-    a.visualize("iteration\(iteration)")
-    b.visualize("iteration\(iteration)")
-    iteration++
     if a == [] {
         return acc + b
     } else if b == [] {
@@ -46,12 +43,12 @@ func mergeSort<T: Comparable>(a: [T]) -> [T] {
     }
 }
 
-let array = randomArray(20, maxNumber: 100)
+let array = randomArray(10, maxNumber: 100)
 
 let sortedArray = mergeSort(array)
 
-let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-view.backgroundColor = .yellowColor()
-XCPShowView("", view: view)
+//let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+//view.backgroundColor = .yellowColor()
+//XCPShowView("", view: view)
 
 //: [Next](@next)
