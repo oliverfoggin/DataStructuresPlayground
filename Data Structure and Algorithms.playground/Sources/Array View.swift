@@ -14,7 +14,7 @@ public class ArrayStackView: UIView {
         s.translatesAutoresizingMaskIntoConstraints = false
         s.axis = UILayoutConstraintAxis.Horizontal
         s.distribution = UIStackViewDistribution.FillEqually
-        s.alignment = UIStackViewAlignment.Bottom
+        s.alignment = UIStackViewAlignment.Center
         s.layoutMarginsRelativeArrangement = true
         return s
     }()
@@ -23,14 +23,13 @@ public class ArrayStackView: UIView {
         super.init(frame: frame)
         backgroundColor = .grayColor()
         addSubview(stackView)
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|[stackView]|", options: NSLayoutFormatOptions.AlignAllBottom, metrics: nil, views: ["stackView": stackView]))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[stackView]|", options: NSLayoutFormatOptions.AlignAllBottom, metrics: nil, views: ["stackView": stackView]))
     }
 
     required public init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    public override func layoutSubviews() {
-        stackView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
     }
     
     func updateArrangedViews() {
@@ -49,6 +48,8 @@ public class ArrayStackView: UIView {
         for value in values {
             addViewWithHeight(value, maxHeight: maxValue)
         }
+        
+        print(stackView)
     }
     
     public func captureView(identifier: String) {
@@ -64,14 +65,16 @@ public class ArrayStackView: UIView {
         let view = UIView(frame: CGRectZero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = colorForPercentage(percentage)
+        view.layer.borderColor = UIColor.blackColor().CGColor
+        view.layer.borderWidth = 1.0
         stackView.addArrangedSubview(view)
-//        view.addConstraint(NSLayoutConstraint(item: view,
-//            attribute: NSLayoutAttribute.Height,
-//            relatedBy: NSLayoutRelation.Equal,
-//            toItem: stackView,
-//            attribute: NSLayoutAttribute.Height,
-//            multiplier: percentage,
-//            constant: 0.0))
+        view.addConstraint(NSLayoutConstraint(item: view,
+            attribute: NSLayoutAttribute.Height,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem: self,
+            attribute: NSLayoutAttribute.Height,
+            multiplier: percentage,
+            constant: 0.0))
         return view
     }
     

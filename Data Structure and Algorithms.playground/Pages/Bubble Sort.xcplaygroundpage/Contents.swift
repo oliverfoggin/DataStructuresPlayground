@@ -4,7 +4,7 @@
 */
 import UIKit
 
-var array = randomArray(20, maxNumber: 100)
+var array = randomArray(10, maxNumber: 100)
 
 var iterations = 0
 var visualisation = 0
@@ -13,7 +13,7 @@ if #available(iOS 9, *) {
     var arrayView = ArrayStackView(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
     arrayView.values = array
     arrayView.captureView("View")
-    arrayView
+//    arrayView
 }
 
 for _ in array.indices {
