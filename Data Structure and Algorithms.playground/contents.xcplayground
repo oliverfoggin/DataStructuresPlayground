@@ -3,6 +3,7 @@
     <pages>
         <page name='Table of Contents'/>
         <page name='Bubble Sort'/>
+        <page name='Shell Sort'/>
         <page name='Alternating Bubble Sort'/>
         <page name='Insertion Sort'/>
         <page name='Selection Sort'/>

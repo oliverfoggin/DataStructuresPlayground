@@ -1,17 +1,13 @@
 /*:
 [Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
 ****
-# Bubble sort
-
-**Pseudo Code:**
-* Repeat **n** times.
-* Iterate the array.
-* Compare each value to the next value.
-* If the first value is higher then swap the values.
+# Shell Sort
 */
 
+import XCPlayground
+
 //: Change the **arrayLength** value to see how the length affects performance
-let arrayLength = 10
+let arrayLength = 57
 let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 
@@ -22,19 +18,23 @@ let arrayView = ArrayStackView()
 arrayView.values = array
 arrayView.captureView("View")
 
-//: Iterate **n** times
-for _ in array.indices {
-//: Check each value in the array
-    for i in 0..<array.count - 1 {
-        iterations++
-//: Compare current value to the next
-        if array[i] > array[i+1] {
-//: Swap
-            swap(&array[i], &array[i+1])
+let gaps = [701, 301, 132, 57, 23, 10, 4, 1]
+
+for gap in gaps where gap <= array.count {
+    for i in gap..<array.count {
+        let temp = array[i]
+        var j = i
+        
+        while j >= gap && array[j - gap] > temp {
+            array[j] = array[j - gap]
+            j-=gap
+            iterations++
+            arrayView.values = array
+            arrayView.captureView("View")
         }
+        
+        array[j] = temp
     }
-    arrayView.values = array
-    arrayView.captureView("View")
 }
 
 /*:

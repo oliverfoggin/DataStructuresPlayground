@@ -10,7 +10,7 @@ let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 
 //: Setting up the view to display the algorithm
-var arrayView = ArrayStackView()
+let arrayView = ArrayStackView()
 arrayView.values = array
 arrayView.captureView("View")
 
