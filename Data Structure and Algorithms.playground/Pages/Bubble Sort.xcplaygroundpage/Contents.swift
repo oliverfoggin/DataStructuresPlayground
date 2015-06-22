@@ -1,4 +1,5 @@
 /*:
+[Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
 ****
 # Bubble sort
 */
@@ -19,4 +20,3 @@ for _ in array.indices {
     arrayView.values = array
     arrayView.captureView("View")
 }
-//: [Next](@next)

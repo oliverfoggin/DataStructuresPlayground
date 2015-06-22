@@ -1,5 +1,5 @@
 /*:
-[Previous](@previous)
+[Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
 ****
 # Merge Sort
 */
@@ -56,4 +56,3 @@ func mergeSort(startIndex: Int, a: [Int]) -> [Int] {
 }
 
 let sortedArray = mergeSort(0, a: array)
-//: [Next](@next)

@@ -1,4 +1,5 @@
 /*:
+[Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
 ****
 # Alternating bubble sort
 */
@@ -27,4 +28,3 @@ for _ in 0..<Int(array.count / 2) {
     arrayView.values = array
     arrayView.captureView("View")
 }
-//: [Next](@next)

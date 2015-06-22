@@ -1,5 +1,5 @@
 /*:
-[Previous](@previous)
+[Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
 ****
 # Insertion Sort
 */
@@ -23,4 +23,3 @@ for (index, number) in array.enumerate() {
     arrayView.values = array
     arrayView.captureView("View")
 }
-//: [Next](@next)

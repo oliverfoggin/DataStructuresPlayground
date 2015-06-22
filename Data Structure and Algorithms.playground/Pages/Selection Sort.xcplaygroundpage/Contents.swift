@@ -1,5 +1,5 @@
 /*:
-[Previous](@previous)
+[Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
 ****
 # Selection Sort
 */
@@ -25,4 +25,3 @@ for index in array.indices {
     arrayView.values = array
     arrayView.captureView("View")
 }
-//: [Next](@next)
