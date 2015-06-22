@@ -3,18 +3,16 @@
 ****
 # Merge Sort
 */
-
-
 //: Change the **arrayLength** value to see how the length affects performance
-let arrayLength = 50
+let arrayLength = 10
 let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
-
 //: Setting up the view to display the algorithm
 let arrayView = ArrayStackView()
 arrayView.values = array
 arrayView.captureView("View")
 
+var iterations = 0
 func merge(startIndex: Int, a: [Int], b: [Int]) -> [Int] {
     var mergedArray = [Int]()
     
@@ -23,6 +21,7 @@ func merge(startIndex: Int, a: [Int], b: [Int]) -> [Int] {
     
     while leftArray.count > 0
         && rightArray.count > 0 {
+            iterations++
             if leftArray[0] < rightArray[0] {
                 mergedArray.append(leftArray[0])
                 leftArray.removeAtIndex(0)
@@ -60,6 +59,10 @@ func mergeSort(startIndex: Int, a: [Int]) -> [Int] {
 }
 
 let sortedArray = mergeSort(0, a: array)
+/*:
+**Iteration Count**
+*/
+iterations
 /*:
 ****
 [Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)

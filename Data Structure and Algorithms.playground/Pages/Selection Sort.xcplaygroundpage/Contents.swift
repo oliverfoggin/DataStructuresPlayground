@@ -3,13 +3,12 @@
 ****
 # Selection Sort
 */
-
-
 //: Change the **arrayLength** value to see how the length affects performance
 let arrayLength = 50
 let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 
+var iterations = 0
 //: Setting up the view to display the algorithm
 let arrayView = ArrayStackView()
 arrayView.values = array
@@ -20,6 +19,7 @@ for index in array.indices {
     var lowestIndex = 0
     
     for i in index..<array.count {
+        iterations++
         if array[i] < lowest {
             lowest = array[i]
             lowestIndex = i
@@ -29,6 +29,10 @@ for index in array.indices {
     arrayView.values = array
     arrayView.captureView("View")
 }
+/*:
+**Iteration Count**
+*/
+iterations
 /*:
 ****
 [Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)

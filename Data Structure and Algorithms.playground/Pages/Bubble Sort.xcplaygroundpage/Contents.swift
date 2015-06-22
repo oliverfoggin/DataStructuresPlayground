@@ -9,7 +9,6 @@
 * Compare each value to the next value.
 * If the first value is higher then swap the values.
 */
-
 //: Change the **arrayLength** value to see how the length affects performance
 let arrayLength = 50
 let maxNumber = 1000
@@ -36,12 +35,10 @@ for _ in array.indices {
     arrayView.values = array
     arrayView.captureView("View")
 }
-
 /*:
 **Iteration Count**
 */
 iterations
-
 /*:
 ****
 [Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)

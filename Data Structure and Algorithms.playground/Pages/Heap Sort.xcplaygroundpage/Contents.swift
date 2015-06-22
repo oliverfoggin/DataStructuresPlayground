@@ -3,14 +3,13 @@
 ****
 # Heap Sort
 */
-
 import Foundation
-
 //: Change the **arrayLength** value to see how the length affects performance
 let arrayLength = 50
 let maxNumber = 100
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 
+var iterations = 0
 //: Setting up the view to display the algorithm
 let arrayView = ArrayStackView()
 arrayView.values = array
@@ -39,6 +38,8 @@ func siftDownn(inout array: [Int], start: Int, end: Int) {
     var root = start
     
     while root * 2 + 1 <= end {
+        iterations++
+        
         let leftChild = root * 2 + 1
         let rightChild = leftChild + 1
         var swap = root
@@ -65,7 +66,10 @@ func siftDownn(inout array: [Int], start: Int, end: Int) {
 }
 
 heapsort(&array)
-
+/*:
+**Iteration Count**
+*/
+iterations
 /*:
 ****
 [Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)

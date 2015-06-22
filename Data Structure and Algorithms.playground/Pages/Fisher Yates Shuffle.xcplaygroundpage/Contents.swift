@@ -1,3 +1,9 @@
+/*:
+[Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
+****
+# Fisher-Yates Shuffle
+*/
+
 import UIKit
 
 var array = Array(0...100)
@@ -18,3 +24,8 @@ func shuffle(var array: [Int]) -> [Int] {
 }
 
 shuffle(array)
+
+/*:
+****
+[Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
+*/
