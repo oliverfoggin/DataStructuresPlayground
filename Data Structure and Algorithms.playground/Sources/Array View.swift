@@ -4,7 +4,7 @@ import XCPlayground
 public class ArrayStackView: UIView {
     public var values: [Int] = [] {
         didSet {
-            updateArrangedViews()
+            updateAllViews()
         }
     }
     
@@ -17,7 +17,17 @@ public class ArrayStackView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateArrangedViews() {
+    public func insertValues(newValues: [Int], startingFrom start: Int) {
+        var currentValues = values
+        
+        for (index, value) in newValues.enumerate() {
+            currentValues[index + start] = value
+        }
+        
+        values = currentValues
+    }
+    
+    func updateAllViews() {
         for view in subviews {
             view.removeFromSuperview()
         }

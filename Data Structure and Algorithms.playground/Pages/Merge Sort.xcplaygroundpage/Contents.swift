@@ -11,33 +11,45 @@ var arrayView = ArrayStackView(frame: CGRect(x: 0, y: 0, width: 500, height: 300
 arrayView.values = array
 arrayView.captureView("View")
 
-func merge(a: [Int], b: [Int], mergeInto acc: [Int]) -> [Int] {
-    if a == [] {
-        return acc + b
-    } else if b == [] {
-        return acc + a
+func merge(startIndex: Int, a: [Int], b: [Int]) -> [Int] {
+    var mergedArray = [Int]()
+    
+    var leftArray = a
+    var rightArray = b
+    
+    while leftArray.count > 0
+        && rightArray.count > 0 {
+            if leftArray[0] < rightArray[0] {
+                mergedArray.append(leftArray[0])
+                leftArray.removeAtIndex(0)
+            } else {
+                mergedArray.append(rightArray[0])
+                rightArray.removeAtIndex(0)
+            }
+            arrayView.insertValues(mergedArray + leftArray + rightArray, startingFrom: startIndex)
+            arrayView.captureView("View")
     }
     
-    if a[0] < b[0] {
-        return merge(Array(a[1..<a.count]), b: b, mergeInto: acc + [a[0]])
-    } else {
-        return merge(a, b: Array(b[1..<b.count]), mergeInto: acc + [b[0]])
+    if leftArray.count > 0 {
+        mergedArray = mergedArray + leftArray
+    } else if rightArray.count > 0 {
+        mergedArray = mergedArray + rightArray
     }
+    
+    arrayView.insertValues(mergedArray, startingFrom: startIndex)
+    arrayView.captureView("View")
+    
+    return mergedArray
 }
 
-func mergeSort(a: [Int]) -> [Int] {
-    arrayView.values = a
-    arrayView.captureView("View")
+func mergeSort(startIndex: Int, a: [Int]) -> [Int] {
     if a.count <= 1 {
         return a
     } else {
         let firstHalf = Array(a[0..<a.count/2])
         let secondHalf = Array(a[a.count/2..<a.count])
         
-        let array = merge(mergeSort(firstHalf), b: mergeSort(secondHalf), mergeInto: [])
-        
-        arrayView.values = array
-        arrayView.captureView("View")
+        let array = merge(startIndex, mergeSort(startIndex, firstHalf), mergeSort(startIndex + a.count/2,a: secondHalf))
         
         return array
     }
