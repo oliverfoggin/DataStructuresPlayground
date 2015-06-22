@@ -15,12 +15,10 @@ let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 
 var iterations = 0
-
 //: Setting up the view to display the algorithm
 let arrayView = ArrayStackView()
 arrayView.values = array
 arrayView.captureView("View")
-
 //: Iterate **n** times
 for _ in array.indices {
 //: Check each value in the array

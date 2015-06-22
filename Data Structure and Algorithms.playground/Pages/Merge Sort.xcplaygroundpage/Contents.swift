@@ -4,7 +4,7 @@
 # Merge Sort
 */
 //: Change the **arrayLength** value to see how the length affects performance
-let arrayLength = 10
+let arrayLength = 50
 let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 //: Setting up the view to display the algorithm

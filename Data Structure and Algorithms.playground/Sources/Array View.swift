@@ -8,6 +8,8 @@ public class ArrayStackView: UIView {
         }
     }
     
+    var maxHeight = 0
+    
     convenience public init() {
         self.init(frame: CGRect(x: 0, y: 0, width: 500, height: 300))
     }
@@ -35,20 +37,25 @@ public class ArrayStackView: UIView {
         for view in subviews {
             view.removeFromSuperview()
         }
-
-        var maxValue = 0
-
-        for value in values {
-            if value > maxValue {
-                maxValue = value
-            }
-        }
         
         let width = frame.width / CGFloat(values.count)
         
-        for (index, value) in values.enumerate() {
-            addViewWithHeight(value, width: width, x: width*CGFloat(index), maxHeight: maxValue)
+        if subviews.count == 0 {
+            for value in values {
+                if value > maxHeight {
+                    maxHeight = value
+                }
+            }
+            
+            for (index, value) in values.enumerate() {
+                addViewWithHeight(value, width: width, x: width*CGFloat(index), maxHeight: maxHeight)
+            }
+        } else {
+            for (index, view) in subviews.enumerate() {
+                configureView(view, percentage: CGFloat(maxHeight/values[index]))
+            }
         }
+        
     }
     
     public func captureView(identifier: String) {
@@ -61,13 +68,16 @@ public class ArrayStackView: UIView {
     
     func addViewWithHeight(height: Int, width: CGFloat, x: CGFloat, maxHeight: Int) {
         let percentage = CGFloat(height) / CGFloat(maxHeight)
-        let height = self.frame.height * percentage
-        let view = UIView(frame: CGRect(x: x, y: self.frame.height - height, width: width, height: height))
+        let view = UIView(frame: CGRect(x: x, y: 0, width: width, height: 0))
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = colorForPercentage(percentage)
-//        view.layer.borderColor = UIColor.blackColor().CGColor
-//        view.layer.borderWidth = 1.0
+        configureView(view, percentage: percentage)
         addSubview(view)
+    }
+    
+    func configureView(view: UIView, percentage: CGFloat) {
+        let height = self.frame.height * percentage
+        view.frame = CGRect(x: view.frame.origin.x, y: self.frame.height - height, width: view.frame.width, height: height)
+        view.backgroundColor = colorForPercentage(percentage)
     }
     
     func colorForPercentage(percentage: CGFloat) -> UIColor {

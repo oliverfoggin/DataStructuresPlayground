@@ -5,8 +5,8 @@
 */
 import Foundation
 //: Change the **arrayLength** value to see how the length affects performance
-let arrayLength = 50
-let maxNumber = 100
+let arrayLength = 100
+let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 
 var iterations = 0
@@ -17,20 +17,17 @@ arrayView.captureView("View")
 
 func heapsort(inout array: [Int]){
     heapify(&array)
-    var end = array.count - 1
-    while end > 0 {
-        swap(&array[end--], &array[0])
-        siftDownn(&array, start: 0, end: end)
+    for end in stride(from: array.count - 1, to: 0, by: -1) {
+        swap(&array[end], &array[0])
+        siftDownn(&array, start: 0, end: end - 1)
         arrayView.values = array
         arrayView.captureView("View")
     }
 }
 
 func heapify(inout array: [Int]){
-    var start: Int = Int(floor((Double(array.count) - 2.0) / 2.0))
-    while start >= 0 {
+    for start in stride(from: Int(floor((Double(array.count) - 2.0) / 2.0)), through: 0, by: -1) {
         siftDownn(&array, start: start, end: array.count - 1)
-        start--
     }
 }
 
