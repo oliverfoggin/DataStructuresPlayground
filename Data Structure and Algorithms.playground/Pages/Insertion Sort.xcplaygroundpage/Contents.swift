@@ -27,7 +27,6 @@ for (index, number) in array.enumerate() {
     arrayView.values = array
     arrayView.captureView("View")
 }
-
 /*:
 **Iteration Count**
 */

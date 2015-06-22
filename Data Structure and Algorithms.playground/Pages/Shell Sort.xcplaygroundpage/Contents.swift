@@ -31,13 +31,12 @@ for gap in gaps where gap <= array.count {
 //: Move backwards through the array in gap intervals
         while j >= gap && array[j - gap] > temp {
 //: Push values forwards and insert temp into lowest spot
-            array[j] = array[j - gap]
+            swap(&array[j], &array[j-gap])
             j-=gap
             iterations++
             arrayView.values = array
             arrayView.captureView("View")
         }
-        
         array[j] = temp
     }
 }
