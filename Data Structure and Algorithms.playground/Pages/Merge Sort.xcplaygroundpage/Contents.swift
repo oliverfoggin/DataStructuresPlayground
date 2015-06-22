@@ -13,52 +13,48 @@ arrayView.values = array
 arrayView.captureView("View")
 
 var iterations = 0
-func merge(startIndex: Int, a: [Int], b: [Int]) -> [Int] {
-    var mergedArray = [Int]()
-    
-    var leftArray = a
-    var rightArray = b
-    
-    while leftArray.count > 0
-        && rightArray.count > 0 {
-            iterations++
-            if leftArray[0] < rightArray[0] {
-                mergedArray.append(leftArray[0])
-                leftArray.removeAtIndex(0)
-            } else {
-                mergedArray.append(rightArray[0])
-                rightArray.removeAtIndex(0)
-            }
-            arrayView.insertValues(mergedArray + leftArray + rightArray, startingFrom: startIndex)
-            arrayView.captureView("View")
-    }
-    
-    if leftArray.count > 0 {
-        mergedArray = mergedArray + leftArray
-    } else if rightArray.count > 0 {
-        mergedArray = mergedArray + rightArray
-    }
-    
-    arrayView.insertValues(mergedArray, startingFrom: startIndex)
-    arrayView.captureView("View")
-    
-    return mergedArray
-}
-
-func mergeSort(startIndex: Int, a: [Int]) -> [Int] {
-    if a.count <= 1 {
-        return a
-    } else {
-        let firstHalf = Array(a[0..<a.count/2])
-        let secondHalf = Array(a[a.count/2..<a.count])
+/*:
+    func merge(startIndex: Int, a: [Int], b: [Int]) -> [Int] {
+        var mergedArray = [Int]()
         
-        let array = merge(startIndex, a: mergeSort(startIndex, a: firstHalf), b: mergeSort(startIndex + a.count/2, a: secondHalf))
+        var leftArray = a
+        var rightArray = b
         
-        return array
+        while leftArray.count > 0
+            && rightArray.count > 0 {
+                if leftArray[0] < rightArray[0] {
+                    mergedArray.append(leftArray[0])
+                    leftArray.removeAtIndex(0)
+                } else {
+                    mergedArray.append(rightArray[0])
+                    rightArray.removeAtIndex(0)
+                }
+        }
+        
+        if leftArray.count > 0 {
+            mergedArray = mergedArray + leftArray
+        } else if rightArray.count > 0 {
+            mergedArray = mergedArray + rightArray
+        }
+        return mergedArray
     }
-}
 
-let sortedArray = mergeSort(0, a: array)
+    public func mergeSort(startIndex: Int, inout a: [Int]) {
+        if a.count <= 1 {
+            return
+        } else {
+            var firstHalf = Array(a[0..<a.count/2])
+            var secondHalf = Array(a[a.count/2..<a.count])
+            
+            mergeSort(startIndex, a: &firstHalf)
+            mergeSort(startIndex + a.count/2, a: &secondHalf)
+            
+            a = merge(startIndex, a: firstHalf, b: secondHalf)
+        }
+    }
+*/
+
+mergeSort(0, a: &array, arrayView: arrayView, iterations: &iterations)
 /*:
 **Iteration Count**
 */
