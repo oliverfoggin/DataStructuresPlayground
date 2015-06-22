@@ -5,7 +5,7 @@
 */
 import UIKit
 
-let array = randomArray(200, maxNumber: 1000)
+let array = randomArray(100, maxNumber: 1000)
 
 var arrayView = ArrayStackView(frame: CGRect(x: 0, y: 0, width: 500, height: 300))
 arrayView.values = array
@@ -49,11 +49,11 @@ func mergeSort(startIndex: Int, a: [Int]) -> [Int] {
         let firstHalf = Array(a[0..<a.count/2])
         let secondHalf = Array(a[a.count/2..<a.count])
         
-        let array = merge(startIndex, mergeSort(startIndex, firstHalf), mergeSort(startIndex + a.count/2,a: secondHalf))
+        let array = merge(startIndex, a: mergeSort(startIndex, a: firstHalf), b: mergeSort(startIndex + a.count/2, a: secondHalf))
         
         return array
     }
 }
 
-let sortedArray = mergeSort(array)
+let sortedArray = mergeSort(0, a: array)
 //: [Next](@next)
