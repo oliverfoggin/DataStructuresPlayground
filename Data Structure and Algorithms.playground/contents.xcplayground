@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' auto-termination-delay='454.2658' requires-full-environment='true' display-mode='rendered'>
+<playground version='6.0' target-platform='ios' auto-termination-delay='454.2658' requires-full-environment='true' display-mode='raw'>
     <pages>
         <page name='Table of Contents'/>
+        <page name='Fisher Yates Shuffle'/>
         <page name='Bubble Sort'/>
         <page name='Shell Sort'/>
         <page name='Alternating Bubble Sort'/>
         <page name='Insertion Sort'/>
         <page name='Selection Sort'/>
         <page name='Merge Sort'/>
+        <page name='Heap Sort'/>
     </pages>
 </playground>
