@@ -3,11 +3,15 @@
 ****
 # Insertion Sort
 */
-import UIKit
 
-var array = randomArray(200, maxNumber: 1000)
 
-var arrayView = ArrayStackView(frame: CGRect(x: 0, y: 0, width: 500, height: 300))
+//: Change the **arrayLength** value to see how the length affects performance
+let arrayLength = 10
+let maxNumber = 1000
+var array = randomArray(arrayLength, maxNumber: maxNumber)
+
+//: Setting up the view to display the algorithm
+var arrayView = ArrayStackView()
 arrayView.values = array
 arrayView.captureView("View")
 
@@ -23,3 +27,7 @@ for (index, number) in array.enumerate() {
     arrayView.values = array
     arrayView.captureView("View")
 }
+/*:
+****
+[Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
+*/

@@ -3,11 +3,15 @@
 ****
 # Merge Sort
 */
-import UIKit
 
-let array = randomArray(100, maxNumber: 1000)
 
-var arrayView = ArrayStackView(frame: CGRect(x: 0, y: 0, width: 500, height: 300))
+//: Change the **arrayLength** value to see how the length affects performance
+let arrayLength = 16
+let maxNumber = 1000
+var array = randomArray(arrayLength, maxNumber: maxNumber)
+
+//: Setting up the view to display the algorithm
+var arrayView = ArrayStackView()
 arrayView.values = array
 arrayView.captureView("View")
 
@@ -56,3 +60,7 @@ func mergeSort(startIndex: Int, a: [Int]) -> [Int] {
 }
 
 let sortedArray = mergeSort(0, a: array)
+/*:
+****
+[Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
+*/

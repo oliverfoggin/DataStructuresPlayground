@@ -8,11 +8,11 @@ public func visualize(identifier: String, array: [Int])
     }
 }
 
-public func randomArray(count: Int, maxNumber: UInt32) -> [Int] {
+public func randomArray(count: Int, maxNumber: Int) -> [Int] {
     var array = [Int]()
     
     for _ in 1...count {
-        array.append(Int(arc4random_uniform(maxNumber)))
+        array.append(Int(arc4random_uniform(UInt32(maxNumber))))
     }
     
     return array

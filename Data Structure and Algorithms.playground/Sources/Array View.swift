@@ -8,6 +8,10 @@ public class ArrayStackView: UIView {
         }
     }
     
+    convenience public init() {
+        self.init(frame: CGRect(x: 0, y: 0, width: 500, height: 300))
+    }
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .grayColor()
