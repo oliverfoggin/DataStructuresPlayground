@@ -53,7 +53,6 @@ var iterations = 0
         }
     }
 */
-
 mergeSort(0, a: &array, arrayView: arrayView, iterations: &iterations)
 /*:
 **Iteration Count**

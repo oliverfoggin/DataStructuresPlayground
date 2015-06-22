@@ -14,15 +14,12 @@ var iterations = 0
 let arrayView = ArrayStackView()
 arrayView.values = array
 arrayView.captureView("View")
-
 /*:
     func heapsort(inout array: [Int]){
         heapify(&array)
         for end in stride(from: array.count - 1, to: 0, by: -1) {
             swap(&array[end], &array[0])
             siftDownn(&array, start: 0, end: end - 1)
-            arrayView.values = array
-            arrayView.captureView("View")
         }
     }
 
@@ -57,7 +54,6 @@ arrayView.captureView("View")
         }
     }
 */
-
 heapsort(&array, arrayView: arrayView, iterations: &iterations)
 /*:
 **Iteration Count**
