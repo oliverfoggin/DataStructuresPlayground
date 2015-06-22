@@ -6,7 +6,7 @@
 
 
 //: Change the **arrayLength** value to see how the length affects performance
-let arrayLength = 16
+let arrayLength = 50
 let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 
