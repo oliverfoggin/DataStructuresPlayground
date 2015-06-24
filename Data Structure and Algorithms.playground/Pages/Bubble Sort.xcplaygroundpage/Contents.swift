@@ -10,7 +10,7 @@
 * If the first value is higher then swap the values.
 */
 //: Change the **arrayLength** value to see how the length affects performance
-let arrayLength = 50
+let arrayLength = 100
 let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 

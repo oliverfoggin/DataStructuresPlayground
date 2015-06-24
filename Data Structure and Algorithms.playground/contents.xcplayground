@@ -10,5 +10,7 @@
         <page name='Selection Sort'/>
         <page name='Merge Sort'/>
         <page name='Heap Sort'/>
+        <page name='Binary Tree'/>
+        <page name='Self Balancing Binary Tree'/>
     </pages>
 </playground>

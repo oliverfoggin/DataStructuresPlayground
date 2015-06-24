@@ -12,4 +12,7 @@
   * [Selection Sort](Selection%20Sort)
   * [Merge Sort](Merge%20Sort)
   * [Heap Sort](Heap%20Sort)
+****
+* **Data Structures**
+  * [Binary Tree](Binary%20Tree)
 */

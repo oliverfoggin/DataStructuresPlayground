@@ -9,7 +9,7 @@
 * Move the current value to the lowest gap interval.
 */
 //: Change the **arrayLength** value to see how the length affects performance
-let arrayLength = 50
+let arrayLength = 100
 let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 

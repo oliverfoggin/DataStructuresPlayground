@@ -4,7 +4,9 @@
 # Selection Sort
 */
 //: Change the **arrayLength** value to see how the length affects performance
-let arrayLength = 50
+import XCPlayground
+
+let arrayLength = 100
 let maxNumber = 1000
 var array = randomArray(arrayLength, maxNumber: maxNumber)
 
