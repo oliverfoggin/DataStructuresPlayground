@@ -17,6 +17,8 @@ for _ in 0..<Int(array.count / 2) {
     for i in 0..<array.count - 1 {
         if array[i] > array[i+1] {
             swap(&array[i], &array[i+1])
+            arrayView.values = array
+            arrayView.captureView("View")
         }
     }
     arrayView.values = array
@@ -26,6 +28,8 @@ for _ in 0..<Int(array.count / 2) {
         iterations++
         if array[i] < array[i-1] {
             swap(&array[i], &array[i-1])
+            arrayView.values = array
+            arrayView.captureView("View")
         }
     }
     arrayView.values = array

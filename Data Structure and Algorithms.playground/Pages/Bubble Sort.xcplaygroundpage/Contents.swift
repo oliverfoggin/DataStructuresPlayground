@@ -28,6 +28,8 @@ for _ in array.indices {
         if array[i] > array[i+1] {
 //: Swap
             swap(&array[i], &array[i+1])
+            arrayView.values = array
+            arrayView.captureView("View")
         }
     }
     arrayView.values = array
