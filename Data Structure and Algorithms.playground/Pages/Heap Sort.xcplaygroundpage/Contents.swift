@@ -3,7 +3,6 @@
 ****
 # Heap Sort
 */
-import Foundation
 //: Change the **arrayLength** value to see how the length affects performance
 let arrayLength = 100
 let maxNumber = 1000
