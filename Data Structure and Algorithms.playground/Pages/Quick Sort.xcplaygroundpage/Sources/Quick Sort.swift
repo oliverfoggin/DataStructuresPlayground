@@ -34,11 +34,5 @@ func choosePivot(array: [Int], start: Int, end: Int) -> Int {
     let last = array[end]
     let mid = array[(end - start) / 2 + start]
     
-    if first <= mid && mid <= last {
-        return (end - start) / 2 + start
-    }
-    if mid <= first && first <= last {
-        return start
-    }
-    return end
+    return [(first, start), (mid, (end - start) / 2 + start), (last, end)].sort{$0.0 < $1.0}[1].1
 }
