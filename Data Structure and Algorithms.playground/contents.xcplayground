@@ -12,5 +12,6 @@
         <page name='Heap Sort'/>
         <page name='Quick Sort'/>
         <page name='Binary Tree'/>
+        <page name='Sleep Sort'/>
     </pages>
 </playground>

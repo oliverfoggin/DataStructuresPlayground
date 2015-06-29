@@ -14,6 +14,9 @@
   * [Heap Sort](Heap%20Sort)
   * [Quick Sort](Quick%20Sort)
 ****
+* **Silly Sorts**
+  * [Sleep Sort](Sleep%20Sort)
+****
 * **Data Structures**
   * [Binary Tree](Binary%20Tree)
 */
