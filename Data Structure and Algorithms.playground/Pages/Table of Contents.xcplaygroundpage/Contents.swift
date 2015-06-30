@@ -1,5 +1,5 @@
 /*:
-#  Algorithms in Swift
+#  Data Structures and Algorithms in Swift
 ****
 * **Shuffles**
   * [Fisher-Yates Shuffle](Fisher%20Yates%20Shuffle)
